@@ -273,8 +273,20 @@ class WeatherService {
 > ✅ **Checkpoint 2.2** บันทึกผลการตรวจสอบ `statusCode` อย่างน้อย 2 กรณี (สำเร็จ และ 404) ตามเกณฑ์ข้างต้น
 
 ```text
-บันทึกรูปและคำตอบที่นี่
+กรณีที่ 1: ค้นหาเมืองที่มีอยู่จริง
+ผลลัพธ์:
+Status Code: 200 OK
+หมายถึง เซิร์ฟเวอร์ทำงานสำเร็จและส่งข้อมูลสภาพอากาศกลับมา
 ```
+<img width="813" height="690" alt="image" src="https://github.com/user-attachments/assets/4c8eb4c2-6d52-4788-a7fc-655b82ff9252" />
+
+```text
+กรณีที่ 2: ค้นหาเมืองที่ไม่มีอยู่จริง
+ผลลัพธ์:
+Status Code: 404 Not Found
+หมายถึง ไม่พบเมืองหรือ Resource ที่ร้องขอ
+```
+<img width="813" height="690" alt="image" src="https://github.com/user-attachments/assets/9a63c4f7-83e3-48c1-8ce2-acddb13fb158" />
 
 ### ขั้นตอนที่ 2.4 — 🧠 คิดเอง/ออกแบบเอง
 
