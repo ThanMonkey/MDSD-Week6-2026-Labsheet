@@ -118,9 +118,17 @@ https://api.openweathermap.org/data/2.5/weather?q=Bangkok&appid=YOUR_API_KEY&uni
 ออกแบบการทดสอบกรณีผิดพลาด (error case) อย่างน้อย 1 กรณี โดยเปลี่ยนค่าพารามิเตอร์บางตัวใน Request ให้เป็นสิ่งที่คาดว่าจะทำให้เซิร์ฟเวอร์ตอบกลับด้วย error (ตัวอย่างแนวทางที่เลือกได้ เช่น เปลี่ยนชื่อเมืองเป็นชื่อที่ไม่มีอยู่จริง, ใส่ `appid` ผิด, หรือลบ `appid` ออกไปเลย) **ก่อนกด Send ให้เขียนคาดการณ์ ก่อนว่า นักศึกษาคิดว่า Status Code จะเป็นอะไร** แล้วจึงทดสอบจริงเพื่อเทียบกับที่คาดไว้
 
 > ✅ **Checkpoint 1.2** บันทึกด้านล่างว่านักศึกษาเลือกทดสอบกรณีใด คาดการณ์ Status Code ไว้ว่าอะไร และ Status Code จริงที่ได้คืออะไร (ตรงหรือไม่ตรงกับที่คาดไว้) พร้อมอธิบายว่าผลลัพธ์ที่ได้ตรงกับช่วง Status Code ใดตามตารางในบทเรียนหัวข้อ 6.3
+<img width="799" height="706" alt="image" src="https://github.com/user-attachments/assets/8ce6da1a-f59e-4888-ad30-4a7290dc4144" />
 
 ```text
-บันทึกรูปและคำตอบที่นี่
+กรณีที่เลือกทดสอบ
+Invalid API Key — ส่ง request โดยใช้ appid ที่ไม่ถูกต้อง (1807eaca8eaa9f9aabdaf4aac5c62ce0) ไปยัง OpenWeatherMap API
+
+การคาดการณ์ Status Code
+คาดว่าจะได้ 401 Unauthorized เพราะ API key ที่ใส่ไม่ถูกต้องหรือยังไม่ได้รับการ activate
+
+Status Code จริงที่ได้
+ได้รับ 401 Unauthorized พร้อม response body:
 ```
 ---
 
