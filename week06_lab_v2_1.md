@@ -76,9 +76,42 @@ https://api.openweathermap.org/data/2.5/weather?q=Bangkok&appid=YOUR_API_KEY&uni
 กด **Send** แล้วสังเกตผลลัพธ์สองส่วนคือ **Status Code** ที่แสดงมุมขวาบน และ **Response Body** ที่เป็น JSON ด้านล่าง
 
 > ✅ **Checkpoint 1.1** ถ่ายภาพหน้าจอ Postman ที่แสดง Status Code `200` พร้อม Response Body แบบเต็ม จากนั้นให้เขียนระบุใน ว่า key ใดใน JSON ที่คาดว่าจะต้องใช้แสดงผลในแอป (เช่น ชื่อเมือง, อุณหภูมิ, คำอธิบายสภาพอากาศ)
+<img width="799" height="706" alt="image" src="https://github.com/user-attachments/assets/60c84475-64e2-42b5-b0ff-db314a26fc82" />
 
 ```text
-บันทึกรูปและคำตอบที่นี่
+
+### 🏙️ ข้อมูลเมือง
+| Key | ประเภท | คำอธิบาย |
+|-----|--------|----------|
+| `name` | String | ชื่อเมือง เช่น `"Bangkok"` |
+| `sys.country` | String | รหัสประเทศ เช่น `"TH"` |
+
+### 🌡️ อุณหภูมิ
+| Key | ประเภท | คำอธิบาย |
+|-----|--------|----------|
+| `main.temp` | Float | อุณหภูมิปัจจุบัน (°C) |
+| `main.feels_like` | Float | อุณหภูมิที่รู้สึกได้จริง (°C) |
+| `main.temp_min` | Float | อุณหภูมิต่ำสุด (°C) |
+| `main.temp_max` | Float | อุณหภูมิสูงสุด (°C) |
+| `main.humidity` | Integer | ความชื้นสัมพัทธ์ (%) |
+
+### ⛅ สภาพอากาศ
+| Key | ประเภท | คำอธิบาย |
+|-----|--------|----------|
+| `weather[0].main` | String | กลุ่มสภาพอากาศ เช่น `Rain`, `Clouds`, `Clear` |
+| `weather[0].description` | String | คำอธิบายสภาพอากาศ (ภาษาไทย เพราะใช้ `lang=th`) เช่น `"ฝนตกปรอยๆ"` |
+| `weather[0].icon` | String | รหัสไอคอน ใช้ URL: `https://openweathermap.org/img/wn/{icon}@2x.png` |
+
+### 💨 ลม
+| Key | ประเภท | คำอธิบาย |
+|-----|--------|----------|
+| `wind.speed` | Float | ความเร็วลม (m/s) |
+
+### 🌅 เวลาพระอาทิตย์
+| Key | ประเภท | คำอธิบาย |
+|-----|--------|----------|
+| `sys.sunrise` | Integer | เวลาพระอาทิตย์ขึ้น (Unix timestamp UTC) |
+| `sys.sunset` | Integer | เวลาพระอาทิตย์ตก (Unix timestamp UTC) |
 ```
 ### ขั้นตอนที่ 1.2 — 🧠 คิดเอง/ออกแบบเอง
 
