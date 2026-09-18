@@ -530,13 +530,17 @@ GET https://fakestoreapi.com/products
 ไม่ว่าจะเลือกแบบไหน เป้าหมายคือต้องเห็น **ผลลัพธ์จริงจาก Fake Store API** ปรากฏขึ้นมา  ถ้ารันแล้วเจอ error หรือโค้ดจาก Gemini ผิดพลาด (เช่น import ขาด, ชื่อ field ไม่ตรงกับ JSON จริง) ให้จดบันทึกข้อความ error และวิธีแก้ไขไว้ในด้านล่าง
 
 ```text
-บันทึก error และการแก้ไขที่นี่
+- Error ครั้งแรก: Couldn't resolve the package 'week6_api_lab' เพราะสคริปต์รันอยู่นอก project root
+- การแก้ไข: ย้ายไฟล์ทดสอบเข้าไปใน bin/ และรันด้วย dart run bin/check_ai_product.dart
+- Error จาก AI-generated code: ต้อง cast JSON field id และ price ให้ตรงกับชนิดตัวเลขจริง
+- การแก้ไข: ใช้ (json['id'] as num?)?.toInt() และ (json['price'] as num?)?.toDouble()
+- ผลลัพธ์: API เรียกสำเร็จ และได้ข้อมูลสินค้าจริงจาก Fake Store API จำนวน 20 รายการ
 ```
 
 > ✅ **Checkpoint 4.2** ถ่ายภาพหน้าจอ Debug Console ที่แสดงผลลัพธ์จริงจากการเรียก `fetchAiProducts()` (เช่น รายการสินค้าที่ print ออกมา) 
-```text
-บันทึกรูปที่นี่
-```
+
+<img width="642" height="313" alt="image" src="https://github.com/user-attachments/assets/9c780e68-c62f-4585-961c-1a11cc3aa605" />
+
 
 ---
 
